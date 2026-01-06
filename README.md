@@ -23,9 +23,22 @@ Rebalances race/class combinations to better fit lore.
 | Troll | X |  | X | X | X | X | X | X |  |  |
 | Blood Elf |  | X | X | X | X | X |  | X | X |  |
 
-Server-side
+Server-side (DBC)
 - CharBaseInfo.dbc
 - CharStartOutfit.dbc
+
+### Changes: Death Knight
+
+Addition
+
+DELETE FROM playercreateinfo WHERE race = 5 AND class = 6;
+
+Reversal
+
+INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) 
+VALUES
+(7, 6, 609, 4298, 2355.05, --5661.7, 426.026, 3.65997);
+
 
 ## patch-10.mvq
 
