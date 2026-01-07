@@ -9,13 +9,12 @@ All SQL DB edits are made via provided command-line scripts.
 
 Rebalances race/class combinations to better fit lore.
 
-
 |       | Warrior | Paladin | Hunter | Rogue | Priest | Death Knight | Shaman | Mage | Warlock | Druid |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Human | X | X |  | X | X | X |  | X | X |  |
 | Dwarf | X | X | X | X | X | X |  |  |  |  |
 | Night Elf | X |  | X | X | X | X |  |  |  | X |
-| Gnome | X |  |  | X | X |X |  | X | X |  |
+| Gnome | X |  |  | X | X |$\color{red}{\textsf{REMOVED}}$ |  | X | X |  |
 | Draenei | X | X | X |  | | X | X | X |  |  |
 | Orc | X |  | X | X |  | X | X |  | X |  |
 | Undead | X |  |  | X | X | X |  | X | X |  |
@@ -23,22 +22,42 @@ Rebalances race/class combinations to better fit lore.
 | Troll | X |  | X | X | X | X | X | X |  |  |
 | Blood Elf |  | X | X | X | X | X |  | X | X |  |
 
-Server-side (DBC)
+Server-side (DBC/MVQ)
 - CharBaseInfo.dbc
 - CharStartOutfit.dbc
 
-### Changes: Death Knight
+<details>
+	<summary>Changes: Paladin</summary>
 
-Addition
+- Added for Tauren.
 
-DELETE FROM playercreateinfo WHERE race = 5 AND class = 6;
 
-Reversal
+### Change (wotlkmangos\playercreateinfo)
+  
 
-INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) 
-VALUES
-(7, 6, 609, 4298, 2355.05, --5661.7, 426.026, 3.65997);
+### Reversal (wotlkmangos\playercreateinfo)
 
+
+```DELETE FROM playercreateinfo WHERE race = 6 AND class = 2;```
+
+</details>
+
+<details>
+	<summary>Changes: Death Knight</summary>
+
+
+- Disabled for Gnomes.
+
+
+### Change (wotlkmangos\playercreateinfo)
+  
+```DELETE FROM playercreateinfo WHERE race = 7 AND class = 6;```
+
+### Reversal (wotlkmangos\playercreateinfo)
+
+```INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES 
+(7, 6, 609, 4298, 2355.05, --5661.7, 426.026, 3.65997);```
+</details>
 
 ## patch-10.mvq
 
