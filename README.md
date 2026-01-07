@@ -29,6 +29,8 @@ Server-side (DBC/MVQ)
 <details>
 	<summary>Changes: Paladin</summary>
 
+### Summary
+
 - Added for Tauren.
 
 
@@ -45,6 +47,7 @@ Server-side (DBC/MVQ)
 <details>
 	<summary>Changes: Death Knight</summary>
 
+### Summary
 
 - Disabled for Gnomes.
 
@@ -57,8 +60,36 @@ Server-side (DBC/MVQ)
 
 ```INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES 
 (7, 6, 609, 4298, 2355.05, --5661.7, 426.026, 3.65997);```
+
 </details>
 
+<details>
+	<summary>Integration: PlayerBots</summary>
+
+### Summary
+This patch is fully comaptible with PlayerBots, due to the provision of the 'ClassRaceProb' string in aiplayerbot.conf.
+Further, PlayerBots is not modified in any way by default. This section is present only to provides helpful details for troubleshooting existing playerbots in your SQL database.
+
+### Prevention (aiplayerbot.conf)
+If you want to prevent the PlayerBots from auto-generating certain classes, this can be modified with the 'ClassRaceProb' string.
+This allows tweaking of race/class combinations, including standalone classes. Further change can be made to disable certain classes outright.
+
+### Change (wotlkcharacters\characters)
+Server failing to launch due to existing playerbots being illegal? Follow this process.
+1. Delete the cursory data for the characters in question:
+
+```DELETE FROM character_spell WHERE guid IN (SELECT guid FROM characters WHERE race = X AND class = Y);```
+
+```DELETE FROM character_inventory WHERE guid IN (SELECT guid FROM characters WHERE race = X AND class = Y);```
+
+```DELETE FROM character_talent WHERE guid IN (SELECT guid FROM characters WHERE race = X AND class = Y);```
+
+3. Now delete the character data itself:
+
+```DELETE FROM characters WHERE race = X AND class = Y;```
+
+</details>
+	
 ## patch-10.mvq
 
 TBD
