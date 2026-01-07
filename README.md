@@ -13,13 +13,14 @@ Rebalances race/class combinations to better fit lore.
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Human | X | X |  | X | X | X |  | X | X |  |
 | Dwarf | X | X | X | X | X | X |  |  |  |  |
-| Night Elf | X |  | X | X | X | X |  |  |  | X |
-| Gnome | X |  |  | X | X |$\color{red}{\textsf{REMOVED}}$ |  | X | X |  |
-| Draenei | X | X | X |  | | X | X | X |  |  |
-| Orc | X |  | X | X |  | X | X |  | X |  |
+| Night Elf | X |  | X | X | X | $\color{red}{\textsf{REMOVED}}$ |  |  |  | X |
+| Gnome | X |  |  | X | X | $\color{red}{\textsf{REMOVED}}$ |  | X | X |  |
+| Draenei | X | X | X |  | | $\color{red}{\textsf{REMOVED}}$ | X | X |  |  |
+|       | Warrior | Paladin | Hunter | Rogue | Priest | Death Knight | Shaman | Mage | Warlock | Druid |
+| Orc | X |  | X | X |  | $\color{red}{\textsf{REMOVED}}$ | X |  | X |  |
 | Undead | X |  |  | X | X | X |  | X | X |  |
-| Tauren | X | $\color{green}{\textsf{ADDED}}$ | X |  | | X |X  |  |  | X |
-| Troll | X |  | X | X | X | X | X | X |  |  |
+| Tauren | X | $\color{green}{\textsf{ADDED}}$ | X |  | | $\color{red}{\textsf{REMOVED}}$ | X |  |  | X |
+| Troll | X |  | X | X | X | $\color{red}{\textsf{REMOVED}}$ | X | X |  |  |
 | Blood Elf |  | X | X | X | X | X |  | X | X |  |
 
 Server-side (DBC/MVQ)
@@ -49,7 +50,7 @@ Server-side (DBC/MVQ)
 
 ### Summary
 
-- Disabled for Gnomes.
+- Disabled for all races except Humans, Dwarfs, Undead, and Blood Elves.
 
 
 ### Change (wotlkmangos\playercreateinfo)
