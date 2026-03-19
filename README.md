@@ -23,34 +23,42 @@ Rebalances race/class combinations to better fit lore.
 | Troll | X |  | X | X | X | $\color{red}{\textsf{REMOVED}}$ | X | X |  |  |
 | Blood Elf |  | X | X | X | X | X |  | X | X |  |
 
-Server (DBC)
+Client-side
+- patch-9.mvq
+Server-side
 - CharBaseInfo.dbc
 - CharStartOutfit.dbc
 
 
-### Server Action (add race/class combination)
+### Implementing patch 9 changes
 
-1. Add the relevant row to wotlkmangos\playercreateinfo:
+1. Add the relevant race/class row to CharBaseInfo.dbc.
+
+2. Save it and import it into patch-9.mvq.
+
+3. Copy the updated CharBaseInfo.dbc tp your server \dbc folder.
+
+3. Add the relevant row to wotlkmangos\playercreateinfo:
 
 ```INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`)
 VALUES
-(7, 6, 609, 4298, 2355.05, --5661.7, 426.026, 3.65997);```
+(X, X, X, X, Y, Y, Y, Z);```
 
-### Client Reversal (remove race/class combination)
+5. Ensure the updated patch-9.mvq is in the Data folder of your World of Warcraft client.
+
+### Removing patch 9 changes
 
 1. Delete the relevant race/class row from CharBaseInfo.dbc.
 
-3. Save it and import it into patch-9.dbc.
+2. Save it and import it into patch-9.mvq.
 
-3. Ensure patch-9.dbc is in the Data folder of your World of Warcraft client.
+3. Copy the updated CharBaseInfo.dbc tp your server \dbc folder.
 
-### Client Reversal (remove race/class combination)
-
-1. Remove the relevant race/class row from wotlkmangos\playercreateinfo:
+4. Remove the relevant race/class row from wotlkmangos\playercreateinfo:
 
 ```DELETE FROM playercreateinfo WHERE race = X AND class = Y;```
 
-2. Copy the updated CharBaseInfo.dbc (from Client Reversal steps) tp your server dbc folder.
+5. Ensure the updated patch-9.mvq is in the Data folder of your World of Warcraft client.
 
 <details>
 	<summary>Changes: Paladin</summary>
