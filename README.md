@@ -24,41 +24,48 @@ Rebalances race/class combinations to better fit lore.
 | Blood Elf |  | X | X | X | X | X |  | X | X |  |
 
 Client-side
+
 - patch-9.mvq
+
 Server-side
+
 - CharBaseInfo.dbc
 - CharStartOutfit.dbc
 
 
 ### Implementing patch 9 changes
 
-1. Add the relevant race/class row to CharBaseInfo.dbc.
+1a. Add the relevant race/class row to CharBaseInfo.dbc.
 
-2. Save it and import it into patch-9.mvq.
+1b. Add the relevant race/class row to CharStartOutfit.dbc.
 
-3. Copy the updated CharBaseInfo.dbc tp your server \dbc folder.
+2. Save both and import them into patch-9.mvq.
 
-3. Add the relevant row to wotlkmangos\playercreateinfo:
+3. Copy the updated .dbc files to your server \dbc folder.
+
+3. Add the relevant race/class row to wotlkmangos\playercreateinfo:
 
 ```INSERT INTO `playercreateinfo` (`race`, `class`, `map`, `zone`, `position_x`, `position_y`, `position_z`, `orientation`)
 VALUES
 (X, X, X, X, Y, Y, Y, Z);```
 
-5. Ensure the updated patch-9.mvq is in the Data folder of your World of Warcraft client.
+5. Ensure the updated patch-9.mvq is in the \Data folder of your World of Warcraft client.
 
 ### Removing patch 9 changes
 
-1. Delete the relevant race/class row from CharBaseInfo.dbc.
+1a. Delete the relevant race/class row from CharBaseInfo.dbc.
 
-2. Save it and import it into patch-9.mvq.
+1b. Delete the relevant race/class row from CharStartOutfit.dbc.
 
-3. Copy the updated CharBaseInfo.dbc tp your server \dbc folder.
+2. Save both and import them into patch-9.mvq.
+
+3. Copy the updated .dbc files to your server \dbc folder.
 
 4. Remove the relevant race/class row from wotlkmangos\playercreateinfo:
 
 ```DELETE FROM playercreateinfo WHERE race = X AND class = Y;```
 
-5. Ensure the updated patch-9.mvq is in the Data folder of your World of Warcraft client.
+5. Ensure the updated patch-9.mvq is in the \Data folder of your World of Warcraft client.
 
 <details>
 	<summary>Changes: Paladin</summary>
